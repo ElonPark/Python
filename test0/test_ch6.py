@@ -293,9 +293,38 @@ duck.about()
 
 
 
+# 네임드 튜플
+from collections import namedtuple
+Duck = namedtuple('Duck', 'bill tail')
+duck  =  Duck('wide orange', 'long')
+print(duck)
+print(duck.bill)
+print(duck.tail)
 
+# 딕셔너리에서 네임드 튜플 만들기
+parts = {'bill' : 'wide orange', 'tail' : 'long'}
+duck2 = Duck(**parts)
+print(duck2)
+# **parts는 키워드 인자다. parts 딕셔너리에서 키와 값을 추출하여 Duck()의 인자로 제공한다.
+duck2 = Duck(bill = 'wide orange', tail = 'long')
+# 네임드 튜플은 불변한다. 하지만 필드를 바꿔서 또 다른 네임드 튜플을 반환할 수 있다.
+duck3 = duck2._replace(tail = 'magnificent', bill = 'crushing')
+print(duck3)
 
+duck_dict = {'bill' : 'wide orange', 'tail' : 'long'}
+print(duck_dict)
 
+duck_dict['color'] = 'green'
+print(duck_dict)
+
+# 딕셔너리는 네임드 튜플이 아니다
+# duck.color = 'green'
+
+ # -  네임드 튜플의 특징
+ # 불변하는 객체처럼 행동한다.
+ # 객체보다 공간 효율성과 시간 효율성이 더 좋다.
+ # 딕셔너리 형식의 괄호([]) 대신, 점(.)표기법으로 속성을 접근할 수 있다.
+ # 네임드 튜플을 딕셔너리의 키처럼 쓸 수 있다.
 
 
 
